@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday ❤️</title>
+    <style>
+        /*  BODY & BACKGROUND  */
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #c371aa;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f5, #ffe4f1);
+            overflow-x: hidden;
+        }
+
+        /*  FLOATING HEARTS  */
+        .heart {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+            left: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatHeart 5s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-800px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /*  TABS  */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            background: rgba(255, 192, 203, 0.2);
+            padding: 12px;
+            flex-wrap: wrap;
+            backdrop-filter: blur(5px);
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: #ff69b4;
+            padding: 10px 25px;
+            margin: 5px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #ff69b4;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .tab-btn:hover {
+            background: #ffb6c1;
+        }
+
+        .tab-content {
+            height: fit-content;
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /*  GREETING  */
+        h1 {
+            font-weight: 700;
+            margin-top: 30px;
+            font-size: 50px;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            color: #ff1493;
+        }
+
+        img {
+            max-width: 250px;
+            border-radius: 50%;
+            margin: 20px 0;
+            box-shadow: 0px 8px 15px rgba(255, 192, 203, 0.4);
+            transition: 0.5s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        button {
+            background: #ff69b4;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #ff1493;
+        }
+
+        /*  GALLERY BUBBLES  */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .bubble {
+            width: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0.4 18px 20px rgba(255, 192, 203, 0.4);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 3px solid #fff;
+        }
+
+        .bubble img {
+            width: 100%;
+            height: 100%;
+            min-width: 300px;
+            object-fit: cover;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /*  STORY CARDS  */
+        #story {
+            width: 100%;
+            display: flex !important;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #image_bubble {
+            display: flex;
+            align-self: center;
+            width: 300px !important;
+            height: 300px !important;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .story {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: left;
+
+        }
+
+        #greeting {
+            padding-bottom: 5rem;
+        }
+
+        /*  WRAPPER DIV  */
+        .wrapper_div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+        }
+
+        /* Image in wrapper_div */
+
+        .wrapper_div img#image_bubble {
+
+            width: 100% !important;
+            height: 100% !important;
+
+            border-radius: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            margin: auto;
+
+        }
+
+        /* Story div */
+        .wrapper_div .story {
+            flex: 1 1 50%;
+            max-width: 70%;
+            text-align: left;
+            align-self: start;
+        }
+
+
+        .image_wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            vertical-align: middle;
+            align-self: center;
+            justify-self: center;
+            margin: 0 auto;
+        }
+
+        .image_wrapper img:hover {
+            transform: rotate(-5deg);
+        }
+
+
+        .story-card {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 192, 203, 0.2);
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 20px;
+            box-shadow: 1px 6px 1px rgba(255, 192, 203, 0.5);
+            width: 80%;
+            transition: 0.4s ease-in-out;
+            overflow: hidden;
+            max-height: 80px;
+            cursor: pointer;
+            overflow-y: scroll;
+            scrollbar-width: none;
+
+        }
+
+        .story-card h3 {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .story-card p {
+            margin-top: 10px;
+            font-family:Arial, Helvetica, sans-serif ;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .story-card.active {
+            max-height: 500px;
+
+        }
+
+        .story-card.active .arrow {
+            transform: rotate(180deg);
+
+        }
+
+        .story-card:hover {
+            transform: translateX(10px);
+
+        }
+
+        /*  CONFETTI  */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FLOATING HEARTS -->
+    <div id="hearts"></div>
+    <audio id="bgMusic" src="./Assets/WhatsApp Video 2025-08-16 at 03.29.53_75a224b8 (audio-extractor.net).mp3"
+        loop></audio>
+
+    <!-- TABS -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="showTab('greeting')">🎉 Greeting</button>
+        <button class="tab-btn" onclick="showTab('gallery')">📸 Gallery</button>
+        <button class="tab-btn" onclick="showTab('story')">💌 Our Story</button>
+    </div>
+
+    <!-- GREETING -->
+    <div id="greeting" class="tab-content active">
+        <h1 id="greetText"></h1>
+        <img src="./Assets/WhatsApp Image 2025-08-15 at 23.31.58_c5bede26.jpg" alt="Her Photo">
+        <p>You make my world brighter every day. Today is all about celebrating YOU ❤️</p>
+        <button onclick="startSurprise()">This is for You 🎁</button>
+    </div>
+
+    <!-- GALLERY -->
+    <div id="gallery" class="tab-content">
+        <h2>Our Memories ❤️</h2>
+        <div class="gallery">
+
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-15 at 23.28.56_4c8fe827.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-15 at 23.31.58_c5bede26.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.05.22_d9fa9c48.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.05.59_b2f5292c.jpg" alt=""></div>
+
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.06.29_3a1e5882.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.07.24_14783412.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.10.24_bfb95fab.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.13.45_15b8c747.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.13.45_5d47ac61.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.13.46_486e0afe.jpg" alt=""></div>
+            <div class="bubble"><img src="./Assets/WhatsApp Image 2025-08-16 at 01.13.46_c0928217.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <!-- STORY -->
+    <div id="story" class="tab-content">
+        <div class="wrapper_div">
+            <div class="image_wrapper">
+                <img id="image_bubble" src="./Assets/WhatsApp Image 2025-08-16 at 02.50.34_6fcca362.jpg">
+                <img id="image_bubble" src="./Assets/WhatsApp Image 2025-08-16 at 02.50.32_ea293678.jpg">
+                <img id="image_bubble" src="./Assets/WhatsApp Image 2025-08-16 at 01.13.46_486e0afe.jpg">
+            </div>
+
+            <div class="story">
+                <h2>Our Story 💌</h2>
+                <div class="story-card">
+                    <h3>✨ How We Met <span class="arrow">▼</span></h3>
+                    <p>It all started by pure chance when I was applying to universities. One day, out of nowhere, we
+                        crossed paths, and that tiny accidental meeting would turn into something unforgettable. A few
+                        moments later, you messaged me asking about how to do something on the application. But here’s
+                        the
+                        funny part you totally misunderstood and thought I was an elder girl! You actually called me,
+                        “Hi
+                        akki…” 😂 I couldn’t stop laughing at that.<br><br>
+
+                        From there, we slowly became friends… and then best friends. Over the next few years, our
+                        friendship
+                        grew stronger, even though life pulled us in different directions. I had to come to Kandy for my
+                        university, and you were in Colombo. But you said something I’ll never forget: “I know every
+                        corner
+                        of Kandy. I’ll show you around the city if you want.” That simple line made me feel like I
+                        already
+                        had a guide, a friend, and someone I could trust.<br><br>
+
+                        On that first day together in Kandy, we walked with a huge gap maybe one to three feet between
+                        us.
+                        It felt a little awkward at first, but it didn’t take long for that distance to shrink. A few
+                        weeks
+                        later, the gap was almost gone… down to just one to three millimeters.
+
+                        And the funniest part? At that time, you called me “Baba❤️”...not “Machan😂”.</p>
+                </div>
+                <div class="story-card">
+                    <h3>🎉 Happy Birthday, my little princess! <span class="arrow">▼</span></h3>
+                    <p>
+                        Today, I don’t just celebrate your birthday I celebrate us and everything we’ve built together.
+                        From the very first day, through all the little misunderstandings, the laughs, and even the
+                        tough days, you’ve been my strength and my joy. Together, we’ve faced challenges, chased our
+                        dreams, and slowly turned every “impossible” into a milestone. Every success we’ve achieved,
+                        every moment we’ve shared it’s all brighter because you were by my side.
+
+                        You inspire me to dream bigger, love deeper, and believe that together, we can conquer anything.
+                        On your special day, I just want you to feel how much you are cherished, how proud I am of you,
+                        and how lucky I am to have you in my life. ❤️</p>
+                </div>
+                <div class="story-card">
+                    <h3>💖 Our Promise <span class="arrow">▼</span></h3>
+                    <p>Through every laugh, every tear, and every dream we dare to chase, I promise to be your
+                        unwavering companion. I will celebrate your triumphs, hold you through every struggle, and love
+                        you with all my heart. No matter where life leads us, I vow to make each day brighter, every
+                        moment sweeter, and every dream we share closer to reality. ❤️ Soon, I will make you my bride,
+                        and together we will weave a lifetime of love, joy, and unforgettable memories.</p>
+                </div>
+                <div class="story-card">
+                    <h3>😘🥰 Love You So Much Patiyooooowwwww....!!❤️💐</h3>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONFETTI -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <script>
+
+        // Select all story cards
+        const storyCards = document.querySelectorAll('.story-card');
+
+        storyCards.forEach(card => {
+            card.addEventListener('click', () => {
+
+                card.classList.toggle('active');
+
+
+                storyCards.forEach(c => {
+                    if (c !== card) c.classList.remove('active');
+                });
+            });
+        });
+
+        /*  TAB SWITCH  */
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`.tab-btn[onclick="showTab('${tabId}')"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        /*  TYPEWRITER GREETING  */
+        const greetText = "Happy Birthday, My Little Princess! 🎉🎀";
+        let i = 0;
+        function typeWriter() {
+            if (i < greetText.length) {
+                document.getElementById("greetText").innerHTML += greetText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        typeWriter();
+
+        /*  FLOATING FLOWERS  */
+        const flowerImages = [
+            './Assets/daisy-flower.png',
+            './Assets/pink-cosmos.png',
+            './Assets/red-rose.png'
+        ];
+
+        function createFlower() {
+            const flower = document.createElement("img");
+
+            const flowerImages = [
+                './Assets/daisy-flower.png',
+                './Assets/pink-cosmos.png',
+                './Assets/red-rose.png'
+            ];
+
+            const randomIndex = Math.floor(Math.random() * flowerImages.length);
+            flower.src = flowerImages[randomIndex];
+
+            flower.style.position = "fixed";
+            flower.style.width = "50px";
+            flower.style.height = "50px";
+            flower.style.left = Math.random() * window.innerWidth + "px";
+            flower.style.bottom = "-30px";
+            flower.style.pointerEvents = "auto";
+            flower.style.zIndex = 0;
+            flower.style.opacity = 0.8;
+
+
+            flower.addEventListener("click", () => {
+                flower.remove();
+            });
+
+            document.body.appendChild(flower);
+
+            const speed = 1 + Math.random() * 2;
+            const drift = Math.random() * 2 - 1;
+            let bottom = -30;
+
+            const floatInterval = setInterval(() => {
+                bottom += speed;
+                flower.style.bottom = bottom + "px";
+                flower.style.left = parseFloat(flower.style.left) + drift + "px";
+                if (bottom > window.innerHeight + 30) {
+                    clearInterval(floatInterval);
+                    flower.remove();
+                }
+            }, 20);
+        }
+
+
+        setInterval(createFlower, 500);
+
+
+
+        /*  CONFETTI  */
+        let confettiInterval = null;
+        let confettiVisible = false;
+
+        function startSurprise() {
+            const canvas = document.getElementById("confettiCanvas");
+            const ctx = canvas.getContext("2d");
+            const music = document.getElementById("bgMusic");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            if (confettiVisible) {
+                // Stop confetti
+                clearInterval(confettiInterval);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                confettiVisible = false;
+
+                // Pause music
+                music.pause();
+                return;
+            }
+
+            // Start confetti
+            confettiVisible = true;
+
+
+            music.currentTime = 0;
+            music.play().catch(error => {
+                console.log("Audio play blocked:", error);
+                alert("Click the button again to start the music!");
+            });
+
+            const confetti = [];
+            const colors = ["#FFC0CB", "#FFD700", "#FF69B4", "#FF1493", "#FFB6C1"];
+
+            for (let i = 0; i < 150; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 6 + 4,
+                    d: Math.random() * 50,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    tilt: Math.random() * 10 - 10
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                confetti.forEach(c => {
+                    ctx.beginPath();
+                    ctx.fillStyle = c.color;
+                    ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, true);
+                    ctx.fill();
+                });
+                update();
+            }
+
+            function update() {
+                confetti.forEach(c => {
+                    c.y += Math.cos(c.d) + 1 + c.r / 2;
+                    c.x += Math.sin(c.d);
+                    if (c.y > canvas.height) {
+                        c.x = Math.random() * canvas.width;
+                        c.y = -10;
+                    }
+                });
+            }
+
+            confettiInterval = setInterval(draw, 20);
+        }
+
+    </script>
+</body>
+
+</html>
