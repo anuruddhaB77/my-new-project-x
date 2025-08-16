@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Happy Birthday ❤️</title>
     <style>
         /*  BODY & BACKGROUND  */
@@ -15,6 +17,7 @@
             text-align: center;
             background: linear-gradient(135deg, #fff0f5, #ffe4f1);
             overflow-x: hidden;
+            width: -webkit-fill-available !important;
         }
 
         /*  FLOATING HEARTS  */
@@ -49,11 +52,11 @@
 
         /*  TABS  */
         .tab-container {
+            width: 100%;
             display: flex;
             justify-content: center;
             background: rgba(255, 192, 203, 0.2);
             padding: 12px;
-            flex-wrap: wrap;
             backdrop-filter: blur(5px);
         }
 
@@ -205,6 +208,7 @@
         }
 
         #greeting {
+           
             padding-bottom: 5rem;
         }
 
@@ -283,7 +287,7 @@
 
         .story-card p {
             margin-top: 10px;
-            font-family:Arial, Helvetica, sans-serif ;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .arrow {
@@ -305,6 +309,14 @@
 
         }
 
+        button {
+            align-self: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            align-items: center;
+            justify-items: center;
+        }
+
         /*  CONFETTI  */
         canvas {
             position: fixed;
@@ -314,6 +326,136 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
+        }
+
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.9em;
+            }
+
+            #greeting {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: flex-start;
+                gap: 1rem;
+
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-top: 20px;
+            }
+
+            .tab-container {
+                flex-direction: row;
+                gap: 10px;
+                padding: 8px;
+                width: -webkit-fill-available !important;
+            }
+
+            .tab-container button {
+                font-size: 14px !important;
+            }
+
+            .tab-btn {
+                padding: 8px 15px;
+                font-size: 20px;
+            }
+
+            .tab-btn.active {
+                align-self: center;
+
+            }
+
+            .tab-content {
+                width: auto;
+                padding: 0;
+            }
+
+            .gallery {
+                gap: 15px;
+            }
+
+            .bubble img {
+                min-width: 150px;
+            }
+
+            .wrapper_div {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .wrapper_div .story {
+                max-width: -webkit-fill-available;
+            }
+
+            .image_wrapper {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .image_wrapper img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .story-card {
+                width: 95%;
+                max-height: 150px;
+            }
+
+            .story-card.active {
+                max-height: 400px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .story {
+                padding: 1rem;
+            }
+        }
+
+        /* SMALLER PHONES */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .tab-btn {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+
+            .bubble img {
+                min-width: 120px;
+            }
+
+            .image_wrapper img {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .story-card {
+                width: auto;
+                max-height: 120px;
+            }
+
+            .story-card.active {
+                max-height: 350px;
+            }
+
+            p {
+                font-size: 16px !important;
+            }
         }
     </style>
 </head>
