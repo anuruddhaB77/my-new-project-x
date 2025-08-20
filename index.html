@@ -575,6 +575,12 @@
 
     <script>
 
+  const password = prompt("Enter password:");
+  if(password !== "MyLoveAsha"){
+    document.body.innerHTML = "<h2>Access Denied</h2>";
+  }
+
+
         // Select all story cards
         const storyCards = document.querySelectorAll('.story-card');
 
